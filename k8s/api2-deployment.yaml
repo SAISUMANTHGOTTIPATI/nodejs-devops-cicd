@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api2
+  template:
+    metadata:
+      labels:
+        app: api2
+    spec:
+      containers:
+      - name: api2
+        image: 201758385016.dkr.ecr.us-east-1.amazonaws.com/http-api2:latest 
+        ports:
+        - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: api2
+spec:
+  ports:
+  - port: 3000
+  selector:
+    app: api2
+  clusterIP: None
