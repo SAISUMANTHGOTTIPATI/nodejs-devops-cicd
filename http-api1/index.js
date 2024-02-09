@@ -4,7 +4,7 @@ const express = require('express');
 const mysql = require('mysql');
 const axios = require('axios');
 const app = express();
-const port = 3001; // Ensure this is different from the first API if running locally
+const port = 3001; 
 
 // Configure MySQL connection using environment variables
 const connection = mysql.createConnection({
@@ -32,7 +32,7 @@ app.get('/api1/db', (req, res) => {
   });
 });
 
-// Endpoint 3: Make a request to the /api2 endpoint of the first API and return its response
+// Endpoint 3: Make a request to the /api2 endpoint of the second API and return its response
 app.get('/api1/api2', async (req, res) => {
   try {
     const response = await axios.get(`${process.env.API2_BASE_URL}/api2`);
