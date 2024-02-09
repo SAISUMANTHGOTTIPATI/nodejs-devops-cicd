@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const port = 3000; 
 
+
 // Define the /api2 endpoint
 app.get('/api2', (req, res) => {
   res.send('OK from API2');
